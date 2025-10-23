@@ -14,8 +14,48 @@ document.addEventListener('DOMContentLoaded', function() {
 function initRoleSwitcher() {
   const roleSwitch = document.getElementById('role-switch');
   if (roleSwitch) {
+    // Set initial value from localStorage or URL
+    const savedState = localStorage.getItem('beverageco_hris_state');
+    let savedRole = 'employee';
+    
+    if (savedState) {
+      try {
+        const state = JSON.parse(savedState);
+        if (state.user && state.user.role) {
+          savedRole = state.user.role;
+        }
+      } catch (e) {
+        console.error('Error parsing state', e);
+      }
+    }
+    
+    // Check URL param which takes precedence
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlRole = urlParams.get('role');
+    if (urlRole) {
+      savedRole = urlRole;
+    }
+    
+    roleSwitch.value = savedRole;
+    
     roleSwitch.addEventListener('change', function() {
       const role = this.value;
+      
+      // Update state in localStorage
+      let currentState = {};
+      const savedState = localStorage.getItem('beverageco_hris_state');
+      if (savedState) {
+        try {
+          currentState = JSON.parse(savedState);
+        } catch (e) {
+          console.error('Error parsing state', e);
+        }
+      }
+      
+      currentState.user = currentState.user || {};
+      currentState.user.role = role;
+      localStorage.setItem('beverageco_hris_state', JSON.stringify(currentState));
+      
       updateURLParam('role', role);
       updateBadge('role', role);
       
@@ -35,6 +75,8 @@ function initNavigation() {
   const enterEmployeeBtn = document.getElementById('enter-employee');
   if (enterEmployeeBtn) {
     enterEmployeeBtn.addEventListener('click', function() {
+      // Set role in state before navigating
+      updateRoleInState('employee');
       window.location.href = 'employee.html';
     });
   }
@@ -42,6 +84,8 @@ function initNavigation() {
   const enterManagerBtn = document.getElementById('enter-manager');
   if (enterManagerBtn) {
     enterManagerBtn.addEventListener('click', function() {
+      // Set role in state before navigating
+      updateRoleInState('manager');
       window.location.href = 'manager.html';
     });
   }
@@ -331,6 +375,23 @@ function updateBadgesFromURL() {
   if (windowParam) {
     updateBadge('window', windowParam.charAt(0).toUpperCase() + windowParam.slice(1));
   }
+}
+
+function updateRoleInState(role) {
+  // Update state in localStorage
+  let currentState = {};
+  const savedState = localStorage.getItem('beverageco_hris_state');
+  if (savedState) {
+    try {
+      currentState = JSON.parse(savedState);
+    } catch (e) {
+      console.error('Error parsing state', e);
+    }
+  }
+  
+  currentState.user = currentState.user || {};
+  currentState.user.role = role;
+  localStorage.setItem('beverageco_hris_state', JSON.stringify(currentState));
 }
 
 function updateWizardTabs() {
