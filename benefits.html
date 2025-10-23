@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benefits Enrollment - BeverageCo HRIS</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="employee-page">
+  <header>
+    <div class="brand" id="brand">BeverageCo HRIS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" id="nav-home" data-automation="nav-home">Home</a></li>
+        <li><a href="employee.html" id="nav-employee" data-automation="nav-employee">Employee</a></li>
+        <li><a href="manager.html" id="nav-manager" data-automation="nav-manager">Manager</a></li>
+      </ul>
+    </nav>
+    <div class="role-switcher">
+      <label for="role-switch">Role:</label>
+      <select id="role-switch">
+        <option value="employee">Employee</option>
+        <option value="manager">Manager</option>
+      </select>
+      <span id="badge-role" class="chip chip-role">Employee</span>
+      <span id="badge-day" class="chip chip-day" style="display: none;"></span>
+      <span id="badge-window" class="chip chip-window" style="display: none;"></span>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Benefits Enrollment</h1>
+      <p>Select your health plan and add dependents</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h3>Select a Plan</h3>
+      </div>
+      <div class="section-content">
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" id="benefit-silver" name="benefit" value="silver" data-automation="benefit-silver">
+            <label for="benefit-silver">Silver Plan - Basic coverage for you and family</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="benefit-gold" name="benefit" value="gold" data-automation="benefit-gold">
+            <label for="benefit-gold">Gold Plan - Enhanced coverage with dental and vision</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="benefit-platinum" name="benefit" value="platinum" data-automation="benefit-platinum">
+            <label for="benefit-platinum">Platinum Plan - Premium coverage with additional wellness benefits</label>
+          </div>
+        </div>
+        
+        <div id="benefits-status" class="status-text"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h3>Add Dependents</h3>
+      </div>
+      <div class="section-content">
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="add-dependent" data-automation="add-dependent">
+            I want to add dependents to my plan
+          </label>
+        </div>
+        
+        <div id="dependent-fields" style="display: none;">
+          <div class="dependent-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="dep-name-1">Dependent Name</label>
+                <input type="text" id="dep-name-1" class="form-control" data-automation="dep-name-1" placeholder="Full name">
+              </div>
+              
+              <div class="form-group">
+                <label for="dep-rel-1">Relationship</label>
+                <select id="dep-rel-1" class="form-control" data-automation="dep-rel-1">
+                  <option value="">Select relationship</option>
+                  <option value="spouse">Spouse</option>
+                  <option value="child">Child</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-ghost" id="btn-back-employee-benefits" data-automation="btn-back-employee-benefits">Back to Dashboard</button>
+      <button class="btn" id="btn-confirm-benefits" data-automation="btn-confirm-benefits">Confirm Benefits</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script defer src="assets/data.js"></script>
+  <script defer src="assets/state.js"></script>
+  <script defer src="assets/app.js"></script>
+</body>
+</html>

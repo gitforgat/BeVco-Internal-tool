@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manager Dashboard - BeverageCo HRIS</title>
+  <title>Performance Reviews - BeverageCo HRIS</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body class="manager-page">
@@ -28,53 +28,20 @@
     </div>
   </header>
 
-  <!-- POPUP CONTEXT: Manager window open -->
-  <div class="banner" id="review-window-banner">
-    Performance Review Window: Open
-  </div>
-
   <div class="container">
     <div class="page-header">
-      <h1>Manager Dashboard</h1>
-      <p>Manage your team's performance reviews</p>
-    </div>
-
-    <div class="card-grid">
-      <div class="card" id="mgr-stats-pending">
-        <h3>Pending Reviews</h3>
-        <p class="stat-number">3</p>
-        <p>Employees awaiting review</p>
-      </div>
-
-      <div class="card" id="mgr-stats-due">
-        <h3>Due Soon</h3>
-        <p class="stat-number">2</p>
-        <p>Reviews due in 7 days</p>
-      </div>
-
-      <div class="card" id="mgr-stats-complete">
-        <h3>Completed</h3>
-        <p class="stat-number">5</p>
-        <p>Reviews submitted this cycle</p>
-      </div>
+      <h1>Performance Reviews</h1>
+      <p>Conduct reviews for your team members</p>
     </div>
 
     <div class="section">
       <div class="section-header">
-        <h3>Team Members</h3>
-        <div class="search-filter">
-          <input type="text" id="team-search" class="form-control" placeholder="Search team members..." data-automation="team-search">
-          <select id="team-filter" class="form-control" data-automation="team-filter">
-            <option value="all">All Departments</option>
-            <option value="engineering">Engineering</option>
-            <option value="marketing">Marketing</option>
-            <option value="sales">Sales</option>
-          </select>
-        </div>
+        <h3>Review List</h3>
       </div>
       <div class="section-content">
         <div class="table-container">
-          <table id="team-table">
+          <!-- BEACON TARGET: Benefits card -->
+          <table id="review-table">
             <thead>
               <tr>
                 <th>Employee ID</th>
@@ -93,7 +60,8 @@
                 <td>2023-06-15</td>
                 <td><span class="chip chip-pending">Pending</span></td>
                 <td>
-                  <button class="btn" id="btn-view-reviews-emp101" data-automation="btn-view-reviews-emp101">View Reviews</button>
+                  <!-- FLOW START: Review Form -->
+                  <button class="btn" id="btn-review-emp101" data-automation="btn-review-emp101">Review</button>
                 </td>
               </tr>
               <tr>
@@ -103,7 +71,8 @@
                 <td>2023-06-20</td>
                 <td><span class="chip chip-draft">Draft</span></td>
                 <td>
-                  <button class="btn" id="btn-view-reviews-emp102" data-automation="btn-view-reviews-emp102">View Reviews</button>
+                  <!-- FLOW START: Review Form -->
+                  <button class="btn" id="btn-review-emp102" data-automation="btn-review-emp102">Review</button>
                 </td>
               </tr>
               <tr>
@@ -113,7 +82,8 @@
                 <td>2023-06-25</td>
                 <td><span class="chip chip-pending">Pending</span></td>
                 <td>
-                  <button class="btn" id="btn-view-reviews-emp103" data-automation="btn-view-reviews-emp103">View Reviews</button>
+                  <!-- FLOW START: Review Form -->
+                  <button class="btn" id="btn-review-emp103" data-automation="btn-review-emp103">Review</button>
                 </td>
               </tr>
             </tbody>

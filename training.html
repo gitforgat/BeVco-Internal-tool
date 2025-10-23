@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Modules - BeverageCo HRIS</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="employee-page">
+  <header>
+    <div class="brand" id="brand">BeverageCo HRIS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" id="nav-home" data-automation="nav-home">Home</a></li>
+        <li><a href="employee.html" id="nav-employee" data-automation="nav-employee">Employee</a></li>
+        <li><a href="manager.html" id="nav-manager" data-automation="nav-manager">Manager</a></li>
+      </ul>
+    </nav>
+    <div class="role-switcher">
+      <label for="role-switch">Role:</label>
+      <select id="role-switch">
+        <option value="employee">Employee</option>
+        <option value="manager">Manager</option>
+      </select>
+      <span id="badge-role" class="chip chip-role">Employee</span>
+      <span id="badge-day" class="chip chip-day" style="display: none;"></span>
+      <span id="badge-window" class="chip chip-window" style="display: none;"></span>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Training Modules</h1>
+      <p>Complete required compliance training</p>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="training-progress">
+        <div class="progress-fill" id="training-progress-fill"></div>
+      </div>
+      <div class="progress-label">Training Progress</div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h3>Required Modules</h3>
+      </div>
+      <div class="section-content">
+        <div class="table-container">
+          <table id="training-table">
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="module-sec101">
+                <td>SEC101</td>
+                <td>Data Security Fundamentals</td>
+                <td id="status-sec101">Not Started</td>
+                <td>
+                  <button class="btn btn-ghost" id="btn-start-sec101" data-automation="btn-start-sec101">Start</button>
+                  <button class="btn" id="btn-complete-sec101" data-automation="btn-complete-sec101" style="display: none;">Mark Complete</button>
+                </td>
+              </tr>
+              <tr id="module-code201">
+                <td>CODE201</td>
+                <td>Code of Conduct</td>
+                <td id="status-code201">Not Started</td>
+                <td>
+                  <button class="btn btn-ghost" id="btn-start-code201" data-automation="btn-start-code201">Start</button>
+                  <button class="btn" id="btn-complete-code201" data-automation="btn-complete-code201" style="display: none;">Mark Complete</button>
+                </td>
+              </tr>
+              <tr id="module-ethics301">
+                <td>ETHICS301</td>
+                <td>Workplace Ethics</td>
+                <td id="status-ethics301">Not Started</td>
+                <td>
+                  <button class="btn btn-ghost" id="btn-start-ethics301" data-automation="btn-start-ethics301">Start</button>
+                  <button class="btn" id="btn-complete-ethics301" data-automation="btn-complete-ethics301" style="display: none;">Mark Complete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-ghost" id="btn-back-employee-training" data-automation="btn-back-employee-training">Back to Dashboard</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script defer src="assets/data.js"></script>
+  <script defer src="assets/state.js"></script>
+  <script defer src="assets/app.js"></script>
+</body>
+</html>

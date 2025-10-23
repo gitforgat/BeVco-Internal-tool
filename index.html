@@ -3,47 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HR Portal - Whatfix Demo</title>
+  <title>BeverageCo HRIS</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <!-- WHATFIX: Pop-up context -->
   <header>
-    <div class="brand">HR Portal</div>
+    <div class="brand" id="brand">BeverageCo HRIS</div>
     <div class="role-switcher">
       <label for="role-switch">Role:</label>
-      <select id="role-switch" data-whatfix-target="role-switch">
+      <select id="role-switch">
         <option value="employee">Employee</option>
         <option value="manager">Manager</option>
       </select>
-      <span id="badge-role" class="badge badge-role">Employee</span>
+      <span id="badge-role" class="chip chip-role">Employee</span>
+      <span id="badge-day" class="chip chip-day" style="display: none;"></span>
+      <span id="badge-window" class="chip chip-window" style="display: none;"></span>
     </div>
   </header>
 
   <div class="container">
     <div class="page-header">
-      <h1>Welcome to HR Portal</h1>
+      <h1>Welcome to BeverageCo HRIS</h1>
       <p>Your one-stop solution for onboarding and performance management</p>
     </div>
 
     <div class="card-grid">
-      <!-- WHATFIX: Flow start -->
       <div class="card" id="card-employee">
         <h3>Employee Portal</h3>
         <p>Complete your onboarding process, enroll in benefits, and access training materials.</p>
-        <a href="employee.html?role=employee" class="btn btn-primary" id="nav-employee">Access Employee Portal</a>
+        <button class="btn" id="enter-employee" data-automation="enter-employee">Access Employee Portal</button>
       </div>
 
-      <!-- WHATFIX: Flow start -->
       <div class="card" id="card-manager">
         <h3>Manager Portal</h3>
         <p>Conduct performance reviews, view team analytics, and manage employee development.</p>
-        <a href="manager.html?role=manager" class="btn btn-primary" id="nav-manager">Access Manager Portal</a>
+        <button class="btn" id="enter-manager" data-automation="enter-manager">Access Manager Portal</button>
       </div>
     </div>
   </div>
 
   <div id="toast" class="toast"></div>
+  <script defer src="assets/data.js"></script>
+  <script defer src="assets/state.js"></script>
   <script defer src="assets/app.js"></script>
 </body>
 </html>

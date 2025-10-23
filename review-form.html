@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Review - BeverageCo HRIS</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="manager-page">
+  <header>
+    <div class="brand" id="brand">BeverageCo HRIS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" id="nav-home" data-automation="nav-home">Home</a></li>
+        <li><a href="employee.html" id="nav-employee" data-automation="nav-employee">Employee</a></li>
+        <li><a href="manager.html" id="nav-manager" data-automation="nav-manager">Manager</a></li>
+      </ul>
+    </nav>
+    <div class="role-switcher">
+      <label for="role-switch">Role:</label>
+      <select id="role-switch">
+        <option value="employee">Employee</option>
+        <option value="manager">Manager</option>
+      </select>
+      <span id="badge-role" class="chip chip-role">Manager</span>
+      <span id="badge-day" class="chip chip-day" style="display: none;"></span>
+      <span id="badge-window" class="chip chip-window" style="display: none;"></span>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="page-header">
+      <h1 id="review-title">Performance Review</h1>
+      <p>Complete the review form for this employee</p>
+    </div>
+
+    <form id="review-form">
+      <!-- Goals Section -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Goals for Next Period</h3>
+        </div>
+        <div class="section-content">
+          <div class="form-group">
+            <label for="f-goals">Goals</label>
+            <!-- TIP TARGET: Goals field -->
+            <textarea id="f-goals" class="form-control" data-automation="f-goals" rows="4" placeholder="Enter goals for the next review period"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Behaviors Section -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Behavior Ratings</h3>
+        </div>
+        <div class="section-content">
+          <div class="form-group">
+            <label>Ownership (1-5)</label>
+            <div class="rating-group">
+              <input type="radio" id="own-1" name="behavior-ownership" value="1" data-automation="own-1">
+              <label for="own-1">1</label>
+              <input type="radio" id="own-2" name="behavior-ownership" value="2" data-automation="own-2">
+              <label for="own-2">2</label>
+              <input type="radio" id="own-3" name="behavior-ownership" value="3" data-automation="own-3">
+              <label for="own-3">3</label>
+              <input type="radio" id="own-4" name="behavior-ownership" value="4" data-automation="own-4">
+              <label for="own-4">4</label>
+              <input type="radio" id="own-5" name="behavior-ownership" value="5" data-automation="own-5">
+              <label for="own-5">5</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Collaboration (1-5)</label>
+            <div class="rating-group">
+              <input type="radio" id="col-1" name="behavior-collab" value="1" data-automation="col-1">
+              <label for="col-1">1</label>
+              <input type="radio" id="col-2" name="behavior-collab" value="2" data-automation="col-2">
+              <label for="col-2">2</label>
+              <input type="radio" id="col-3" name="behavior-collab" value="3" data-automation="col-3">
+              <label for="col-3">3</label>
+              <input type="radio" id="col-4" name="behavior-collab" value="4" data-automation="col-4">
+              <label for="col-4">4</label>
+              <input type="radio" id="col-5" name="behavior-collab" value="5" data-automation="col-5">
+              <label for="col-5">5</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Quality Focus (1-5)</label>
+            <div class="rating-group">
+              <input type="radio" id="qua-1" name="behavior-quality" value="1" data-automation="qua-1">
+              <label for="qua-1">1</label>
+              <input type="radio" id="qua-2" name="behavior-quality" value="2" data-automation="qua-2">
+              <label for="qua-2">2</label>
+              <input type="radio" id="qua-3" name="behavior-quality" value="3" data-automation="qua-3">
+              <label for="qua-3">3</label>
+              <input type="radio" id="qua-4" name="behavior-quality" value="4" data-automation="qua-4">
+              <label for="qua-4">4</label>
+              <input type="radio" id="qua-5" name="behavior-quality" value="5" data-automation="qua-5">
+              <label for="qua-5">5</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overall Rating Section -->
+      <div class="section">
+        <div class="section-header">
+          <h3>Overall Performance</h3>
+        </div>
+        <div class="section-content">
+          <div class="form-group">
+            <label for="f-rating">Overall Rating (1-5)</label>
+            <!-- TIP TARGET: Overall Rating field -->
+            <!-- VALIDATION TARGET: Overall Rating -->
+            <input type="number" id="f-rating" class="form-control" data-automation="f-rating" min="1" max="5" placeholder="Enter rating from 1 to 5">
+          </div>
+
+          <div class="form-group">
+            <label for="f-comments">Manager Comments</label>
+            <!-- TIP TARGET: Comments field -->
+            <!-- VALIDATION TARGET: Comments -->
+            <textarea id="f-comments" class="form-control" data-automation="f-comments" rows="5" placeholder="Provide detailed feedback on performance"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAUNCHER TARGET: Help near review form -->
+      <div class="form-actions">
+        <a href="#" class="help-link" id="selfhelp-entrypoint" data-automation="selfhelp-entrypoint">Need help writing effective feedback?</a>
+        <div class="button-group">
+          <button type="button" class="btn btn-ghost" id="btn-cancel-review" data-automation="btn-cancel-review">Cancel</button>
+          <button type="button" class="btn btn-ghost" id="btn-save-draft" data-automation="btn-save-draft">Save Draft</button>
+          <!-- VALIDATION TARGET: Submit Review -->
+          <button type="submit" class="btn" id="btn-submit-review" data-automation="btn-submit-review">Submit Review</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script defer src="assets/data.js"></script>
+  <script defer src="assets/state.js"></script>
+  <script defer src="assets/app.js"></script>
+</body>
+</html>

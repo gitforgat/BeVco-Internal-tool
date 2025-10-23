@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding - BeverageCo HRIS</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="employee-page">
+  <header>
+    <div class="brand" id="brand">BeverageCo HRIS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" id="nav-home" data-automation="nav-home">Home</a></li>
+        <li><a href="employee.html" id="nav-employee" data-automation="nav-employee">Employee</a></li>
+        <li><a href="manager.html" id="nav-manager" data-automation="nav-manager">Manager</a></li>
+      </ul>
+    </nav>
+    <div class="role-switcher">
+      <label for="role-switch">Role:</label>
+      <select id="role-switch">
+        <option value="employee">Employee</option>
+        <option value="manager">Manager</option>
+      </select>
+      <span id="badge-role" class="chip chip-role">Employee</span>
+      <span id="badge-day" class="chip chip-day" style="display: none;"></span>
+      <span id="badge-window" class="chip chip-window" style="display: none;"></span>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Onboarding Hub</h1>
+      <p>Complete your 30-day onboarding process</p>
+    </div>
+
+    <!-- FLOW START: Profile Wizard -->
+    <div class="section" id="profile-wizard">
+      <div class="section-header">
+        <h3>Profile Setup</h3>
+      </div>
+      <div class="section-content">
+        <div class="wizard-steps">
+          <div class="step-tabs">
+            <button class="step-tab active" id="wiz-step-1" data-automation="wiz-step-1">Personal</button>
+            <button class="step-tab" id="wiz-step-2" data-automation="wiz-step-2">Address</button>
+            <button class="step-tab" id="wiz-step-3" data-automation="wiz-step-3">Emergency</button>
+          </div>
+          
+          <div class="step-content">
+            <!-- Step 1: Personal Information -->
+            <div class="step active" id="step-1">
+              <div class="form-group">
+                <label for="profile-firstname">First Name</label>
+                <!-- TIP TARGET: First Name field -->
+                <input type="text" id="profile-firstname" class="form-control" data-automation="profile-firstname" placeholder="John">
+              </div>
+              
+              <div class="form-group">
+                <label for="profile-lastname">Last Name</label>
+                <!-- TIP TARGET: Last Name field -->
+                <input type="text" id="profile-lastname" class="form-control" data-automation="profile-lastname" placeholder="Doe">
+              </div>
+              
+              <div class="form-group">
+                <label for="profile-email">Email</label>
+                <!-- TIP TARGET: Email field -->
+                <input type="email" id="profile-email" class="form-control" data-automation="profile-email" placeholder="john.doe@beverageco.com">
+              </div>
+              
+              <div class="form-group">
+                <label for="profile-phone">Phone</label>
+                <!-- TIP TARGET: Phone field -->
+                <input type="tel" id="profile-phone" class="form-control" data-automation="profile-phone" placeholder="(123) 456-7890">
+              </div>
+            </div>
+            
+            <!-- Step 2: Address Information -->
+            <div class="step" id="step-2">
+              <div class="form-group">
+                <label for="profile-address">Address</label>
+                <!-- TIP TARGET: Address field -->
+                <input type="text" id="profile-address" class="form-control" data-automation="profile-address" placeholder="123 Main St">
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="profile-city">City</label>
+                  <input type="text" id="profile-city" class="form-control" data-automation="profile-city" placeholder="San Francisco">
+                </div>
+                
+                <div class="form-group">
+                  <label for="profile-state">State</label>
+                  <input type="text" id="profile-state" class="form-control" data-automation="profile-state" placeholder="CA">
+                </div>
+                
+                <div class="form-group">
+                  <label for="profile-zipcode">ZIP Code</label>
+                  <input type="text" id="profile-zipcode" class="form-control" data-automation="profile-zipcode" placeholder="94105">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Step 3: Emergency Contact -->
+            <div class="step" id="step-3">
+              <div class="form-group">
+                <label for="profile-emergency-name">Emergency Contact Name</label>
+                <!-- TIP TARGET: Emergency Contact Name field -->
+                <input type="text" id="profile-emergency-name" class="form-control" data-automation="profile-emergency-name" placeholder="Jane Smith">
+              </div>
+              
+              <div class="form-group">
+                <label for="profile-emergency-phone">Emergency Contact Phone</label>
+                <!-- TIP TARGET: Emergency Contact Phone field -->
+                <input type="tel" id="profile-emergency-phone" class="form-control" data-automation="profile-emergency-phone" placeholder="(123) 456-7890">
+              </div>
+            </div>
+          </div>
+          
+          <div class="wizard-actions">
+            <button class="btn btn-ghost" id="btn-wiz-prev" data-automation="btn-wiz-prev" disabled>Previous</button>
+            <button class="btn btn-ghost" id="btn-wiz-next" data-automation="btn-wiz-next">Next</button>
+            <button class="btn" id="btn-wiz-save" data-automation="btn-wiz-save" style="display: none;">Save Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Documents Section -->
+    <div class="section" id="docs-section">
+      <div class="section-header">
+        <h3>Required Documents</h3>
+      </div>
+      <div class="section-content">
+        <div id="docs-list">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="doc-idproof" data-automation="doc-idproof">
+              Government-issued ID (Driver's License, Passport)
+            </label>
+          </div>
+          
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="doc-bankproof" data-automation="doc-bankproof">
+              Bank Account Information
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome Tasks -->
+    <div class="section" id="welcome-section">
+      <div class="section-header">
+        <h3>Welcome Tasks</h3>
+      </div>
+      <div class="section-content">
+        <div id="welcome-checklist">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="welcome-1" data-automation="welcome-1">
+              Review Employee Handbook
+            </label>
+          </div>
+          
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="welcome-2" data-automation="welcome-2">
+              Complete IT Setup
+            </label>
+          </div>
+          
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="welcome-3" data-automation="welcome-3">
+              Schedule Intro Meeting with Manager
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-ghost" id="btn-back-employee" data-automation="btn-back-employee">Back to Dashboard</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script defer src="assets/data.js"></script>
+  <script defer src="assets/state.js"></script>
+  <script defer src="assets/app.js"></script>
+</body>
+</html>
