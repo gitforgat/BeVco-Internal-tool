@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager Dashboard - HR Portal</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="manager-page">
+  <header>
+    <div class="brand">HR Portal</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" id="nav-home">Home</a></li>
+        <li><a href="employee.html?role=employee" id="nav-employee">Employee</a></li>
+        <li><a href="manager.html?role=manager" id="nav-manager">Manager</a></li>
+      </ul>
+    </nav>
+    <div class="role-switcher">
+      <label for="role-switch">Role:</label>
+      <select id="role-switch" data-whatfix-target="role-switch">
+        <option value="employee">Employee</option>
+        <option value="manager">Manager</option>
+      </select>
+      <span id="badge-role" class="badge badge-role">Manager</span>
+      <span id="badge-window" class="badge badge-window">Open</span>
+    </div>
+  </header>
+
+  <div class="status-bar">
+    <div>Role: <span id="badge-role-status" class="badge badge-role">Manager</span></div>
+    <div>Review Window: <span id="badge-window-status" class="badge badge-window">Open</span></div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <div class="hero-content">
+        <h2>Team Performance Reviews</h2>
+        <p>Conduct performance reviews for your team members</p>
+        <!-- WHATFIX: Pop-up context -->
+      </div>
+      <div>
+        <!-- WHATFIX: Launcher target -->
+        <button class="launcher-btn" id="launcher-review-help" data-whatfix-target="launcher-review-help" style="margin-bottom: 10px;">
+          Review Rubric
+        </button>
+        <br>
+        <!-- WHATFIX: Launcher target -->
+        <button class="launcher-btn" id="launcher-review-survey" data-whatfix-target="launcher-review-survey">
+          Feedback Survey
+        </button>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <!-- WHATFIX: Table context -->
+      <table id="review-table" data-whatfix-target="review-table">
+        <thead>
+          <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Last Review</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>EMP101</td>
+            <td>Alex Johnson</td>
+            <td>Engineering</td>
+            <td>2023-06-15</td>
+            <td><span id="status-badge" class="badge badge-window" data-whatfix-target="status-badge">Due</span></td>
+            <td>
+              <!-- WHATFIX: Flow start -->
+              <button class="btn btn-primary" id="btn-review-emp101" data-whatfix-target="btn-review-emp101" data-open="modal-review">
+                Review
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>EMP102</td>
+            <td>Taylor Smith</td>
+            <td>Marketing</td>
+            <td>2023-06-20</td>
+            <td><span id="status-badge" class="badge badge-window" data-whatfix-target="status-badge">Due</span></td>
+            <td>
+              <!-- WHATFIX: Flow start -->
+              <button class="btn btn-primary" id="btn-review-emp102" data-whatfix-target="btn-review-emp102" data-open="modal-review">
+                Review
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>EMP103</td>
+            <td>Jordan Williams</td>
+            <td>Sales</td>
+            <td>2023-06-25</td>
+            <td><span id="status-badge" class="badge badge-window" data-whatfix-target="status-badge">Due</span></td>
+            <td>
+              <!-- WHATFIX: Flow start -->
+              <button class="btn btn-primary" id="btn-review-emp103" data-whatfix-target="btn-review-emp103" data-open="modal-review">
+                Review
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Review Modal -->
+  <div class="modal" id="modal-review" data-whatfix-target="modal-review">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="review-title" data-whatfix-target="review-title">Performance Review</h3>
+        <button class="close-modal" data-close>&times;</button>
+      </div>
+      <form id="review-form" data-whatfix-target="review-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="f-rating">Performance Rating (1-5)</label>
+            <!-- WHATFIX: Smart Tip target -->
+            <input type="number" id="f-rating" class="form-control" data-whatfix-target="f-rating" min="1" max="5" placeholder="Enter rating from 1 to 5">
+          </div>
+          
+          <div class="form-group">
+            <label for="f-goals">Goals for Next Period</label>
+            <textarea id="f-goals" class="form-control" data-whatfix-target="f-goals" rows="3" placeholder="Enter goals for the next review period"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="f-comments">Comments</label>
+            <!-- WHATFIX: Smart Tip target -->
+            <textarea id="f-comments" class="form-control" data-whatfix-target="f-comments" rows="4" placeholder="Provide detailed feedback on performance"></textarea>
+            <span class="hint">Use Whatfix Smart Tips on Rating/Comments and a Validation Tip on Submit.</span>
+          </div>
+          
+          <!-- WHATFIX: Self-help entrypoint -->
+          <a href="#" class="selfhelp-entrypoint" id="selfhelp-entrypoint" data-whatfix-target="selfhelp-entrypoint">
+            Need help writing effective feedback?
+          </a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-cancel-review" class="btn btn-secondary" data-whatfix-target="btn-cancel-review" data-close>
+            Cancel
+          </button>
+          <button type="button" id="btn-save-draft" class="btn btn-secondary" data-whatfix-target="btn-save-draft">
+            Save Draft
+          </button>
+          <button type="submit" id="btn-submit-review" class="btn btn-primary" data-whatfix-target="btn-submit-review">
+            Submit Review
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script defer src="assets/app.js"></script>
+</body>
+</html>

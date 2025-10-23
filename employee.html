@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Dashboard - HR Portal</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="employee-page">
+  <header>
+    <div class="brand">HR Portal</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" id="nav-home">Home</a></li>
+        <li><a href="employee.html?role=employee" id="nav-employee">Employee</a></li>
+        <li><a href="manager.html?role=manager" id="nav-manager">Manager</a></li>
+      </ul>
+    </nav>
+    <div class="role-switcher">
+      <label for="role-switch">Role:</label>
+      <select id="role-switch" data-whatfix-target="role-switch">
+        <option value="employee">Employee</option>
+        <option value="manager">Manager</option>
+      </select>
+      <span id="badge-role" class="badge badge-role">Employee</span>
+      <span id="badge-day" class="badge badge-day">Day 1</span>
+    </div>
+  </header>
+
+  <div class="status-bar">
+    <div>Role: <span id="badge-role-status" class="badge badge-role">Employee</span></div>
+    <div>Onboarding: <span id="badge-day-status" class="badge badge-day">Day 1</span></div>
+    <div>Status: <span id="badge-window-status" class="badge badge-window">Active</span></div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <div class="hero-content">
+        <h2>30-day Onboarding</h2>
+        <p>Complete your onboarding tasks to get started at the company</p>
+        <!-- WHATFIX: Pop-up context -->
+      </div>
+      <!-- WHATFIX: Launcher target -->
+      <button class="launcher-btn" id="launcher-onboarding-help" data-whatfix-target="launcher-onboarding-help">
+        Help Resources
+      </button>
+    </div>
+
+    <!-- WHATFIX: Progress indicator -->
+    <div class="progress-container">
+      <div class="progress-bar" id="onboarding-progress" style="width: 0%"></div>
+    </div>
+    <div class="progress-label">Onboarding Progress</div>
+
+    <!-- Profile Setup Section -->
+    <div class="section" id="section-profile">
+      <div class="section-header">
+        <h3>Profile Setup</h3>
+        <!-- WHATFIX: Flow step -->
+        <span class="chevron rotated">▼</span>
+      </div>
+      <div class="section-content">
+        <form id="profile-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="profile-firstname">First Name</label>
+              <input type="text" id="profile-firstname" class="form-control" data-whatfix-target="profile-firstname" placeholder="John">
+            </div>
+            <div class="form-group">
+              <label for="profile-lastname">Last Name</label>
+              <input type="text" id="profile-lastname" class="form-control" data-whatfix-target="profile-lastname" placeholder="Doe">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="profile-email">Email</label>
+              <!-- WHATFIX: Smart Tip target -->
+              <input type="email" id="profile-email" class="form-control" data-whatfix-target="profile-email" placeholder="john.doe@company.com">
+              <span class="hint">Use your company email address</span>
+            </div>
+            <div class="form-group">
+              <label for="profile-phone">Phone</label>
+              <!-- WHATFIX: Smart Tip target -->
+              <input type="tel" id="profile-phone" class="form-control" data-whatfix-target="profile-phone" placeholder="(123) 456-7890">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="profile-address">Address</label>
+            <!-- WHATFIX: Smart Tip target -->
+            <input type="text" id="profile-address" class="form-control" data-whatfix-target="profile-address" placeholder="123 Main St">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="profile-city">City</label>
+              <input type="text" id="profile-city" class="form-control" data-whatfix-target="profile-city" placeholder="San Francisco">
+            </div>
+            <div class="form-group">
+              <label for="profile-state">State</label>
+              <input type="text" id="profile-state" class="form-control" data-whatfix-target="profile-state" placeholder="CA">
+            </div>
+            <div class="form-group">
+              <label for="profile-zipcode">ZIP Code</label>
+              <input type="text" id="profile-zipcode" class="form-control" data-whatfix-target="profile-zipcode" placeholder="94105">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="profile-emergency-name">Emergency Contact Name</label>
+            <input type="text" id="profile-emergency-name" class="form-control" data-whatfix-target="profile-emergency-name" placeholder="Jane Smith">
+          </div>
+          
+          <div class="form-group">
+            <label for="profile-emergency-phone">Emergency Contact Phone</label>
+            <input type="tel" id="profile-emergency-phone" class="form-control" data-whatfix-target="profile-emergency-phone" placeholder="(123) 456-7890">
+          </div>
+          
+          <div class="form-group">
+            <button type="button" id="btn-save-profile" class="btn btn-primary" data-whatfix-target="btn-save-profile">Save Profile</button>
+            <button type="button" id="btn-cancel-profile" class="btn btn-secondary" data-whatfix-target="btn-cancel-profile">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Benefits Enrollment Section -->
+    <div class="section collapsed" id="section-benefits">
+      <div class="section-header">
+        <h3>Benefits Enrollment</h3>
+        <!-- WHATFIX: Flow step -->
+        <!-- WHATFIX: Beacon target -->
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-content">
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" id="benefit-silver" name="benefit" value="silver" data-whatfix-target="benefit-silver">
+            <label for="benefit-silver">Silver Plan - Basic coverage for you and family</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="benefit-gold" name="benefit" value="gold" data-whatfix-target="benefit-gold">
+            <label for="benefit-gold">Gold Plan - Enhanced coverage with dental and vision</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="benefit-platinum" name="benefit" value="platinum" data-whatfix-target="benefit-platinum">
+            <label for="benefit-platinum">Platinum Plan - Premium coverage with additional wellness benefits</label>
+          </div>
+        </div>
+        
+        <p class="hint">Use a Whatfix Validation Tip to require a selection before confirming.</p>
+        
+        <div class="form-group">
+          <button type="button" id="btn-confirm-benefits" class="btn btn-primary" data-whatfix-target="btn-confirm-benefits">Confirm Benefits</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compliance Training Section -->
+    <div class="section collapsed" id="section-training">
+      <div class="section-header">
+        <h3>Compliance Training</h3>
+        <!-- WHATFIX: Flow step -->
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-content">
+        <p>Complete mandatory compliance training to ensure workplace safety and legal compliance.</p>
+        
+        <div class="form-group">
+          <button type="button" id="training-start" class="btn btn-primary" data-whatfix-target="training-start">Start Training</button>
+          <button type="button" id="training-mark-complete" class="btn btn-secondary" data-whatfix-target="training-mark-complete">Mark as Complete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script defer src="assets/app.js"></script>
+</body>
+</html>
