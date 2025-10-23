@@ -17,6 +17,8 @@ function initRoleSwitcher() {
       const role = this.value;
       updateURLParam('role', role);
       updateBadge('role', role);
+      // Also update the status badge
+      updateBadge('role-status', role);
     });
   }
 }
@@ -253,16 +255,22 @@ function updateBadgesFromURL() {
     if (roleSwitch) {
       roleSwitch.value = role;
     }
+    // Also update the status badge
+    updateBadge('role-status', role);
   }
   
   const day = urlParams.get('day');
   if (day) {
     updateBadge('day', `Day ${day}`);
+    // Also update the status badge
+    updateBadge('day-status', `Day ${day}`);
   }
   
   const windowParam = urlParams.get('window');
   if (windowParam) {
     updateBadge('window', windowParam.charAt(0).toUpperCase() + windowParam.slice(1));
+    // Also update the status badge
+    updateBadge('window-status', windowParam.charAt(0).toUpperCase() + windowParam.slice(1));
   }
 }
 
