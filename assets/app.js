@@ -260,9 +260,9 @@ function updateBadgesFromURL() {
     updateBadge('day', `Day ${day}`);
   }
   
-  const window = urlParams.get('window');
-  if (window) {
-    updateBadge('window', window.charAt(0).toUpperCase() + window.slice(1));
+  const windowParam = urlParams.get('window');
+  if (windowParam) {
+    updateBadge('window', windowParam.charAt(0).toUpperCase() + windowParam.slice(1));
   }
 }
 
